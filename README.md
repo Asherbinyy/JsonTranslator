@@ -1,16 +1,41 @@
 # json_translator
 
-A new Flutter project.
+A simple JSON translator for you
+
+## Pre-requisites
+Follow the instructions to install the required packages
 
 ## Getting Started
+App is so easy to use,
+=> Copy your json file you wish to translate to the input field , click translate and you are done!
 
-This project is a starting point for a Flutter application.
+## Hint
+Make sure you have a valid json file to translate to the input field , otherwise you will get an error message,Just Follow the instructions and you are good to go!
+1- Insert your json data as example and make sure it starts with {  and ends with }  the last key value doesn't contain comma ,
+2- Doesn't contain comments in between such as :  //  or any other characters like   ,  or  ;  
+3- Doesn't contain any spaces between the keys and values
+ 
+### Example
+1- Insert this json data to the input field and click translate
+```
+{
+//   "name": "محمد",
+//   "age": "25",
+//   "street": "الشارع",
+//   "city": "المدينة",
+//   "country": "البلد"
+// }
+```
+2- Select the language you wish to translate to and click translate
+3- Click on translate button and you are done!
+4- You can do some more like coping the translated json data and use it in your project or you can download it as a file 
+5- Beautify the output and also the input json data
+6- You Can order your json keys alphabetically ! 
+and more to come soon!
+ 
+## Contact Me
+For help contact me on my email :  [ahmed.elsherbiny2020@gmail.com protected]  or on my twitter :  @sherbinovic 
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Copyrigths 
+All rights reserved to the auther of this app : Ahmed Elsherbini
