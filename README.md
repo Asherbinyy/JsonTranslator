@@ -34,7 +34,7 @@ Make sure you have a valid json file to translate to the input field , otherwise
 and more to come soon!
  
 ## Contact Me
-For help contact me on my email :  [ahmed.elsherbiny2020@gmail.com protected]  or on my twitter :  @sherbinovic 
+For help contact me on my email :  [ahmed.elsherbiny2020@gmail.com]  or on my twitter :  @sherbinovic 
 
 
 ## Copyrigths 
