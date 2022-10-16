@@ -6,7 +6,7 @@ A simple JSON translator for you
 Follow the instructions to install the required packages
 
 ## Getting Started
-App is so easy to use \n
+App is so easy to use 
  Copy your json file you wish to translate to the input field , click translate and you are done!
 
 ## Hint
