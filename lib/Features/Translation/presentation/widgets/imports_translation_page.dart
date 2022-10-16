@@ -1,0 +1,16 @@
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:json_translator/Core/Colors/app_colors.dart';
+import 'package:json_translator/Core/Constants/app_strings.dart';
+import 'package:json_translator/Core/Data/data_state.dart';
+import 'package:json_translator/Core/Utils/Validator/validate_map.dart';
+import 'package:json_translator/Core/Utils/utils.dart';
+import 'package:json_translator/Features/Translation/presentation/manager/translation_controller.dart';
+import 'package:json_translator/Features/Translation/presentation/widgets/dialog_instructions.dart';
+part 'body_translation.dart';
+part 'footer_button_translation.dart';
+part 'translation_options_builder.dart';
+ part 'header_input_translation.dart';
+part 'header_output_translation.dart';
+part 'options_language_select_builder.dart';
+part 'text_field_translation.dart';
