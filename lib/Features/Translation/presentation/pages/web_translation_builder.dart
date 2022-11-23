@@ -25,6 +25,7 @@ class WebTranslationBuilder extends StatelessWidget {
                    children: [
                     Expanded(
                       child: Column(
+                        //
                         crossAxisAlignment: CrossAxisAlignment.end,
 
                         children: [
