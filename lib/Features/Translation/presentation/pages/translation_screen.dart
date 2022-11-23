@@ -2,7 +2,9 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:json_translator/Features/Translation/presentation/manager/translation_controller.dart';
-import 'package:json_translator/Features/Translation/presentation/widgets/imports_translation_page.dart';
+import 'package:json_translator/Features/Translation/presentation/pages/web_translation_builder.dart';
+import 'package:json_translator/Features/Translation/presentation/pages/mobile_translation_screen.dart';
+import 'package:json_translator/Parent/responsive_builder.dart';
 
 /// App Features :
 /// 1- Translate Json
@@ -24,14 +26,13 @@ class TranslationScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text("Json Translator"),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          children: const [
-            BodyTranslation(),
-            FooterButtonTranslation(),
-          ],
+      body: const Padding(
+        padding: EdgeInsets.all(16.0),
+        child: ResponsiveBuilder(
+          mobile: MobileTranslationScreen(),
+          web: WebTranslationBuilder(),
         ),
+        // child: Column(
       ),
     );
   }

@@ -5,42 +5,40 @@ class BodyTranslation extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final translateController = Get.find<TranslationController>();
+    final logic = Get.find<TranslationController>();
     return Expanded(
       child: GetBuilder<TranslationController>(
-          init: TranslationController(),
+          init: logic,
           builder: (logic) {
             return SingleChildScrollView(
-              child: Form(
-                key: translateController.formKey,
+               child: Form(
+                key: logic.formKey,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     /// Display the json file
                     const HeaderInputTranslation(),
                     TextEditingFieldTranslation(
-                      controller: translateController.inputController,
+                      controller: logic.inputController,
                       validator: MapDataValidator.validate,
                       hintText:
                           "Paste your json file here Like this : \n ${AppString.jsonExample}",
                       isInput: true,
                     ),
-
                     /// Select Languages Options
-                    const OptionsLanguageSelectBuilder(),
-
+                      OptionsLanguageSelectBuilder(controller: logic),
                     /// Display the translated json file
                     const HeaderOutputTranslation(),
                     TextEditingFieldTranslation(
-                      controller: translateController.outputController,
+                      controller: logic.outputController,
                       hintText: "Paste your json file here",
                       isInput: false,
                     ),
-                    if (translateController.state is DataLoading)
+                    if (logic.state is DataLoading)
                       Obx(() {
                         return LinearProgressIndicator(
                           minHeight: 5,
-                          value: translateController.loadedProgress,
+                          value: logic.loadedProgress,
                           color: AppColors.get.primaryColor.withOpacity(0.6),
                           valueColor:   AlwaysStoppedAnimation<Color>(
                             AppColors.get.primaryColor,

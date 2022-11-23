@@ -1,27 +1,30 @@
 part of  'imports_translation_page.dart';
 class OptionsLanguageSelectBuilder extends StatelessWidget {
-  const OptionsLanguageSelectBuilder({Key? key}) : super(key: key);
+  final TranslationController controller;
+  const OptionsLanguageSelectBuilder({Key? key, required this.controller}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final translateController = Get.find<TranslationController>();
-    return Container(
+     return Container(
       margin: const EdgeInsets.symmetric(vertical: 15),
       child:  Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           /// Input Language
-          DropdownButton<String>(
-            value: translateController.inputLang,
-            items: translateController.languages
-                .map((e) => DropdownMenuItem(
-              value: e.code,
-              child: Text(e.name),
-            ))
-                .toList(),
-            onChanged: (_) {
-              translateController.onLangChanged(_, isInput: true);
-            },
+          Expanded(
+            child: DropdownButton<String>(
+
+              value: controller.inputLang,
+              items: controller.languages
+                  .map((e) => DropdownMenuItem(
+                value: e.code,
+                child: Text(e.name),
+              ))
+                  .toList(),
+              onChanged: (_) {
+                controller.onLangChanged(_, isInput: true);
+              },
+            ),
           ),
           GestureDetector(
             onTap: () {},
@@ -29,9 +32,9 @@ class OptionsLanguageSelectBuilder extends StatelessWidget {
             /// reverse lang
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 8.0),
-              child: GestureDetector(
+              child: InkWell(
                 onTap: () {
-                  translateController.reverseLanguages();
+                  controller.reverseLanguages();
                 },
                 child: const Icon(
                   Icons.swap_horiz_rounded,
@@ -39,20 +42,21 @@ class OptionsLanguageSelectBuilder extends StatelessWidget {
               ),
             ),
           ),
-
           /// Output Language
-          DropdownButton<String>(
-            value: translateController.outputLang,
-            items: translateController.languages
-                .skip(1)
-                .map((e) => DropdownMenuItem(
-              value: e.code,
-              child: Text(e.name),
-            ))
-                .toList(),
-            onChanged: (_) {
-              translateController.onLangChanged(_, isInput: false);
-            },
+          Expanded(
+            child: DropdownButton<String>(
+              value: controller.outputLang,
+              items: controller.languages
+                  .skip(1)
+                  .map((e) => DropdownMenuItem(
+                value: e.code,
+                child: Text(e.name),
+              ))
+                  .toList(),
+              onChanged: (_) {
+                controller.onLangChanged(_, isInput: false);
+              },
+            ),
           ),
         ],
       ),

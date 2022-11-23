@@ -15,7 +15,6 @@ extension MapOp on Map<String, dynamic> {
 
 
 }
-
 extension StringOp on String {
   Map<String, dynamic> get toDecodedMap {
     Map<String, dynamic> returnedMap = {};
@@ -34,4 +33,7 @@ extension StringOp on String {
     final splitBracket2 = splitComma.split("}").join("\n}");
     return splitBracket2;
   }
+}
+extension BoolOp on bool {
+   bool get  toggle => !this;
 }
