@@ -9,6 +9,7 @@ import 'package:json_translator/Features/Translation/presentation/manager/transl
 import 'package:json_translator/Features/Translation/presentation/widgets/dialog_inserted_example.dart';
 
 class TranslationController extends TranslationControllerInterface {
+  ScrollController ? scrollController ;
   /// Initialized Values
   TextEditingController? inputController;
   TextEditingController? outputController;
@@ -90,6 +91,7 @@ class TranslationController extends TranslationControllerInterface {
 
   @override
   void reverseLanguages() {
+    printDM("reverseLanguages");
     final inp = inputLang;
     inputLang = outputLang;
     outputLang = inp;
@@ -143,6 +145,7 @@ class TranslationController extends TranslationControllerInterface {
 
   @override
   void onInit() {
+    scrollController= ScrollController();
     inputController = TextEditingController();
     outputController = TextEditingController();
     super.onInit();
@@ -162,10 +165,10 @@ class TranslationController extends TranslationControllerInterface {
   }
 }
 //
-final example = {
-  "name": "محمد",
-  "age": "25",
-  "street": "الشارع",
-  "city": "المدينة",
-  "country": "البلد"
-};
+// final example = {
+//   "name": "محمد",
+//   "age": "25",
+//   "street": "الشارع",
+//   "city": "المدينة",
+//   "country": "البلد"
+// };

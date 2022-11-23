@@ -22,48 +22,55 @@ class TextEditingFieldTranslation extends StatelessWidget {
       child: Stack(
         alignment: Alignment.bottomLeft,
         children: [
-          Stack(
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            mainAxisAlignment: MainAxisAlignment.end,
+            mainAxisSize: MainAxisSize.max,
             children: [
-              TextFormField(
-                validator: validator,
-                maxLines: 10,
-                controller: controller,
-                readOnly: isInput ? false : true,
-                decoration: InputDecoration(
-                  errorBorder: const OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: Colors.redAccent,
+              Stack(
+                children: [
+                  TextFormField(
+                    validator: validator,
+                    maxLines: 10,
+                    controller: controller,
+                    readOnly: isInput ? false : true,
+                    decoration: InputDecoration(
+                      errorBorder: const OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Colors.redAccent,
 
+                        ),
+                      ),
+                      border: const OutlineInputBorder(
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(10),
+                        ),
+                      ),
+                      hintText: hintText,
+                      // "Paste your json file here",
+                      // labelText: 'Upload your Json File here ! ',
+                      // suffixIcon: Icon(Icons.upload_file),
                     ),
-                  ),
-                  border: const OutlineInputBorder(
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(10),
-                    ),
-                  ),
-                  hintText: hintText,
-                  // "Paste your json file here",
-                  // labelText: 'Upload your Json File here ! ',
-                  // suffixIcon: Icon(Icons.upload_file),
-                ),
-                autocorrect: true,
-                enableSuggestions: true,
+                    autocorrect: true,
+                    enableSuggestions: true,
 
+                  ),
+                  if (isInput && translateController.inputController?.text != "")
+                    Align(
+                      alignment: Alignment.topRight,
+                      child: CloseButton(
+                        onPressed: () {
+                          translateController.clear();
+                        },
+                      ),
+                    ),
+                ],
               ),
-              if (isInput && translateController.inputController?.text != "")
-                Align(
-                  alignment: Alignment.topRight,
-                  child: CloseButton(
-                    onPressed: () {
-                      translateController.clear();
-                    },
-                  ),
-                ),
+              TranslationOptionsBuilder(isInput: isInput),
             ],
           ),
 
           /// Options
-          TranslationOptionsBuilder(isInput: isInput),
         ],
       ),
     );
